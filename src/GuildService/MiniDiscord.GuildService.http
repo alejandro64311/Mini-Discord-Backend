@@ -1,0 +1,6 @@
+@MiniDiscord.GuildService_HostAddress = http://localhost:5108
+
+GET {{MiniDiscord.GuildService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

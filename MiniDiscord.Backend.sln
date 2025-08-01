@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniDiscord.ChatService", "src\ChatService\MiniDiscord.ChatService.csproj", "{211C26A5-890B-4D87-8220-10B321B2CCEC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniDiscord.Contracts", "src\Contracts\MiniDiscord.Contracts.csproj", "{1B411C7B-6204-44C5-9090-A0E9E6D5AEFB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniDiscord.GuildService", "src\GuildService\MiniDiscord.GuildService.csproj", "{C4A5BAF8-67D5-4FCB-B159-B8E8558A058D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniDiscord.IdentityService", "src\IdentityService\MiniDiscord.IdentityService.csproj", "{76D75630-7B92-4D1C-8CC0-AA3C6B605A86}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniDiscord.NotificationService", "src\NotificationService\MiniDiscord.NotificationService.csproj", "{F6FE60E0-EAC8-41B2-810C-40E18024EE5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{7D3BA8CA-6EA6-49FA-ACB2-1584D3F4790D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityService", "IdentityService", "{AD75B313-6D6B-43B7-BE33-AFDDBE8ADD98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GuildService", "GuildService", "{38AC9714-6061-4EE4-B7F2-53C357DA5193}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChatService", "ChatService", "{EEA03A42-A359-4BC0-B479-D86D211D23B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationService", "NotificationService", "{57C41656-6F18-47F8-9B6F-B9235DD98B37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{608B92F4-6F41-4BC5-858B-3921AB8A2A97}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.dev.yml = docker-compose.dev.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A9BA15FD-40D1-4379-B969-FC9A5AE67500}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{19B13C2D-F4E2-4D55-BA90-993C533CDB65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{211C26A5-890B-4D87-8220-10B321B2CCEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{211C26A5-890B-4D87-8220-10B321B2CCEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{211C26A5-890B-4D87-8220-10B321B2CCEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{211C26A5-890B-4D87-8220-10B321B2CCEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B411C7B-6204-44C5-9090-A0E9E6D5AEFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B411C7B-6204-44C5-9090-A0E9E6D5AEFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B411C7B-6204-44C5-9090-A0E9E6D5AEFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B411C7B-6204-44C5-9090-A0E9E6D5AEFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4A5BAF8-67D5-4FCB-B159-B8E8558A058D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4A5BAF8-67D5-4FCB-B159-B8E8558A058D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4A5BAF8-67D5-4FCB-B159-B8E8558A058D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4A5BAF8-67D5-4FCB-B159-B8E8558A058D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D75630-7B92-4D1C-8CC0-AA3C6B605A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D75630-7B92-4D1C-8CC0-AA3C6B605A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D75630-7B92-4D1C-8CC0-AA3C6B605A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D75630-7B92-4D1C-8CC0-AA3C6B605A86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6FE60E0-EAC8-41B2-810C-40E18024EE5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6FE60E0-EAC8-41B2-810C-40E18024EE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6FE60E0-EAC8-41B2-810C-40E18024EE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6FE60E0-EAC8-41B2-810C-40E18024EE5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19B13C2D-F4E2-4D55-BA90-993C533CDB65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B13C2D-F4E2-4D55-BA90-993C533CDB65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B13C2D-F4E2-4D55-BA90-993C533CDB65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B13C2D-F4E2-4D55-BA90-993C533CDB65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{211C26A5-890B-4D87-8220-10B321B2CCEC} = {EEA03A42-A359-4BC0-B479-D86D211D23B3}
+		{1B411C7B-6204-44C5-9090-A0E9E6D5AEFB} = {7D3BA8CA-6EA6-49FA-ACB2-1584D3F4790D}
+		{C4A5BAF8-67D5-4FCB-B159-B8E8558A058D} = {38AC9714-6061-4EE4-B7F2-53C357DA5193}
+		{76D75630-7B92-4D1C-8CC0-AA3C6B605A86} = {AD75B313-6D6B-43B7-BE33-AFDDBE8ADD98}
+		{F6FE60E0-EAC8-41B2-810C-40E18024EE5E} = {57C41656-6F18-47F8-9B6F-B9235DD98B37}
+		{AD75B313-6D6B-43B7-BE33-AFDDBE8ADD98} = {A9BA15FD-40D1-4379-B969-FC9A5AE67500}
+		{38AC9714-6061-4EE4-B7F2-53C357DA5193} = {A9BA15FD-40D1-4379-B969-FC9A5AE67500}
+		{EEA03A42-A359-4BC0-B479-D86D211D23B3} = {A9BA15FD-40D1-4379-B969-FC9A5AE67500}
+		{57C41656-6F18-47F8-9B6F-B9235DD98B37} = {A9BA15FD-40D1-4379-B969-FC9A5AE67500}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8BEC2AD-24D2-4706-9B62-D122A8E58E96}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+@MiniDiscord.IdentityService_HostAddress = http://localhost:5216
+
+GET {{MiniDiscord.IdentityService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

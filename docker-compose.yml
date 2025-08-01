@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  minidiscord.chatservice:
+    image: ${DOCKER_REGISTRY-}minidiscordchatservice
+    build:
+      context: .
+      dockerfile: src/ChatService/Dockerfile
+
+  minidiscord.identityservice:
+    image: ${DOCKER_REGISTRY-}minidiscordidentityservice
+    build:
+      context: .
+      dockerfile: src/IdentityService/Dockerfile
+
+
+  minidiscord.notificationservice:
+    image: ${DOCKER_REGISTRY-}minidiscordnotificationservice
+    build:
+      context: .
+      dockerfile: src/NotificationService/Dockerfile
+
