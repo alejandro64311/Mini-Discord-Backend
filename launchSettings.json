@@ -6,7 +6,8 @@
       "serviceActions": {
         "minidiscord.chatservice": "StartDebugging",
         "minidiscord.identityservice": "StartDebugging",
-        "minidiscord.notificationservice": "StartDebugging"
+        "minidiscord.notificationservice": "StartDebugging",
+        "minidiscord.guildservice": "StartDebugging"
       }
     }
   }

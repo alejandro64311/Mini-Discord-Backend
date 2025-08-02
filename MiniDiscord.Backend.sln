@@ -23,11 +23,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChatService", "ChatService"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationService", "NotificationService", "{57C41656-6F18-47F8-9B6F-B9235DD98B37}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{608B92F4-6F41-4BC5-858B-3921AB8A2A97}"
-	ProjectSection(SolutionItems) = preProject
-		docker-compose.dev.yml = docker-compose.dev.yml
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A9BA15FD-40D1-4379-B969-FC9A5AE67500}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{19B13C2D-F4E2-4D55-BA90-993C533CDB65}"
