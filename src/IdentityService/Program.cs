@@ -38,12 +38,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
-// migrate db automatically
 using (var scope = app.Services.CreateScope())
 {
     var ctx = scope.ServiceProvider.GetRequiredService<IdentityDbContext>();
     ctx.Database.Migrate();
 }
+
 
 app.Run();
 

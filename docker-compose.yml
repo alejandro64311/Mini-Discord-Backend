@@ -1,22 +1,54 @@
 version: '3.4'
 
 services:
+  pg-identity:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: identity
+      POSTGRES_PASSWORD: identitypwd
+      POSTGRES_DB: identitydb
+    # volumes:
+      # - pg_identity:/var/lib/postgresql/data
+
   minidiscord.chatservice:
-    image: ${DOCKER_REGISTRY-}minidiscordchatservice
+    image: ${DOCKER_REGISTRY-}chatservice
     build:
       context: .
       dockerfile: src/ChatService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ConnectionStrings__Default: "Host=pg-identity;Port=5432;Database=identitydb;Username=identity;Password=identitypwd"
+      Jwt__Key: "SuperSecretDevKey!!"
+      Jwt__Issuer: "MiniDiscord"
+    depends_on: [pg-identity]
 
   minidiscord.identityservice:
-    image: ${DOCKER_REGISTRY-}minidiscordidentityservice
+    image: ${DOCKER_REGISTRY-}identityservice
     build:
       context: .
       dockerfile: src/IdentityService/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ConnectionStrings__Default: "Host=pg-identity;Port=5432;Database=identitydb;Username=identity;Password=identitypwd"
+      Jwt__Key: "/yC8bat+CqTPdBdq0byIBQXNUW+wdeL3JDg3t5wCvLI="
+      Jwt__Issuer: "MiniDiscord"
+    depends_on: [pg-identity]
+      
 
 
-  minidiscord.notificationservice:
-    image: ${DOCKER_REGISTRY-}minidiscordnotificationservice
-    build:
-      context: .
-      dockerfile: src/NotificationService/Dockerfile
+
+  # minidiscord.notificationservice:
+  #   image: ${DOCKER_REGISTRY-}minidiscordnotificationservice
+  #   build:
+  #     context: .
+  #     dockerfile: src/NotificationService/Dockerfile
+  # minidiscord.guildservice:
+  #   image: ${DOCKER_REGISTRY-}minidiscordguildservice
+  #   build:
+  #     context: .
+  #     dockerfile: src/GuildService/Dockerfile
+
+volumes:
+  pg_identity:
+
 

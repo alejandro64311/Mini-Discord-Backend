@@ -7,6 +7,15 @@ namespace MiniDiscord.IdentityService.Data
         : DbContext(options)
     {
         public DbSet<User> Users => Set<User>();
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>(b =>
+            {
+                b.ToTable("users");
+                b.HasIndex(x => x.Email).IsUnique();
+            });
+        }
     }
 
 }
