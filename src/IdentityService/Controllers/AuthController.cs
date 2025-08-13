@@ -16,12 +16,12 @@ namespace MiniDiscord.IdentityService.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {
-            if (await db.Users.AnyAsync(u => u.Email == dto.stringEmail))
+            if (await db.Users.AnyAsync(u => u.Email == dto.Email))
                 return Conflict("E-mail already registered.");
 
             var user = new User
             {
-                Email = dto.stringEmail.Trim().ToLower(),
+                Email = dto.Email.Trim().ToLower(),
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password)
             };
             db.Users.Add(user);
@@ -32,7 +32,7 @@ namespace MiniDiscord.IdentityService.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
-            var user = await db.Users.FirstOrDefaultAsync(u => u.Email == dto.stringEmail);
+            var user = await db.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
             if (user is null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
                 return Unauthorized("Invalid credentials");
 

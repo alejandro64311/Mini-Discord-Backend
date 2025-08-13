@@ -1,5 +1,5 @@
 ﻿namespace MiniDiscord.IdentityService.Models
 {
-    public record LoginDto(string stringEmail, string Password);
+    public record LoginDto(string Email, string Password);
 
 }
