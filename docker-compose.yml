@@ -42,11 +42,11 @@ services:
   #   build:
   #     context: .
   #     dockerfile: src/NotificationService/Dockerfile
-  # minidiscord.guildservice:
-  #   image: ${DOCKER_REGISTRY-}minidiscordguildservice
-  #   build:
-  #     context: .
-  #     dockerfile: src/GuildService/Dockerfile
+  minidiscord.guildservice:
+    image: ${DOCKER_REGISTRY-}guildservice
+    build:
+      context: .
+      dockerfile: src/GuildService/Dockerfile
 
 volumes:
   pg_identity:
