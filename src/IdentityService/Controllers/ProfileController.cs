@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MiniDiscord.IdentityService.Data;
 using MiniDiscord.IdentityService.Models;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace MiniDiscord.IdentityService.Controllers
 {
@@ -14,7 +16,9 @@ namespace MiniDiscord.IdentityService.Controllers
         [HttpGet("me")]
         public async Task<ActionResult<User>> Me()
         {
-            Guid id = Guid.Parse(User.FindFirst("sub")!.Value);
+            var sub = User.FindFirstValue(JwtRegisteredClaimNames.Sub)
+                     ?? User.FindFirstValue(ClaimTypes.NameIdentifier);
+            Guid id = Guid.Parse(sub);
             var user = await db.Users.FindAsync(id);
             return user is null ? NotFound() : Ok(user);
         }

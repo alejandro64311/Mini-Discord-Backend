@@ -13,6 +13,8 @@ builder.Services.AddDbContext<IdentityDbContext>(opt =>
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", cfg =>
     {
+        cfg.MapInboundClaims = false;
+
         var jwt = builder.Configuration.GetSection("Jwt").Get<JwtOptions>()!;
         cfg.TokenValidationParameters = new()
         {
