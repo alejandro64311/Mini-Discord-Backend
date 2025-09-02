@@ -1,6 +1,7 @@
 using MiniDiscord.IdentityService.Data;
 using MiniDiscord.IdentityService.Services;
 using Microsoft.EntityFrameworkCore;
+using BuildingBlocks.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 // === Configuración =========================================================

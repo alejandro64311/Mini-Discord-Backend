@@ -4,6 +4,7 @@ using MiniDiscord.IdentityService.Models;
 using System.Security.Claims;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using BuildingBlocks.Jwt;
 
 namespace MiniDiscord.IdentityService.Services
 {

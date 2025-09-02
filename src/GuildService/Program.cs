@@ -1,35 +1,25 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using BuildingBlocks.Jwt;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using MiniDiscord.GuildService.Data;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<GuildDbContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(o =>
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", cfg =>
     {
-        o.MapInboundClaims = false;
+        cfg.MapInboundClaims = false;
 
-        var issuer = builder.Configuration["Jwt:Issuer"]
-            ?? throw new InvalidOperationException("Falta Jwt:Issuer");
-        var keyStr = builder.Configuration["Jwt:Key"]
-            ?? throw new InvalidOperationException("Falta Jwt:Key");
-
-        if (Encoding.UTF8.GetByteCount(keyStr) < 32)
-            throw new InvalidOperationException("Jwt:Key debe tener >= 32 bytes (256 bits).");
-
-        o.TokenValidationParameters = new TokenValidationParameters
+        var jwt = builder.Configuration.GetSection("Jwt").Get<JwtOptions>()!;
+        cfg.TokenValidationParameters = new()
         {
-            ValidIssuer = issuer,
-            ValidAudience = issuer,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyStr)),
-            ValidateIssuerSigningKey = true,
-            ValidateIssuer = true,
-            ValidateAudience = true
+            ValidIssuer = jwt.Issuer,
+            ValidAudience = jwt.Issuer,
+            IssuerSigningKey =
+                new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(
+                    System.Text.Encoding.UTF8.GetBytes(jwt.Key))
         };
     });
 builder.Services.AddAuthorization();
@@ -49,6 +39,11 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseHttpsRedirection();
+using (var scope = app.Services.CreateScope())
+{
+    var ctx = scope.ServiceProvider.GetRequiredService<GuildDbContext>();
+    ctx.Database.Migrate();
+}
 
 app.Run();
 
